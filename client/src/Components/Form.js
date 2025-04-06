@@ -21,10 +21,16 @@ const Form = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}
+      style={{display:'flex',
+          flexDirection: 'column',
+          flexWrap: 'wrap',
+          alignItems: 'flex-end',
+          alignContent: 'space-around'}}>
         <div>
           <label>Email:</label>
           <input
+          style={{width:100}}
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -34,6 +40,7 @@ const Form = () => {
         <div>
           <label>Number:</label>
           <InputMask
+          style={{width:100}}
             mask="99-99-99"
             value={number}
             onChange={(e) => setNumber(e.target.value)}
@@ -41,8 +48,9 @@ const Form = () => {
             {(inputProps) => <input {...inputProps} />}
           </InputMask>
         </div>
-        <button type="submit">Submit</button>
-      </form>
+         <button type="submit" style={{width:108, marginTop:10}}>Submit</button>
+      </form> 
+    
       {error && <div style={{ color: 'red' }}>{error}</div>}
       <div>
         {results.map((user, index) => (
